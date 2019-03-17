@@ -5,6 +5,7 @@ from lxml import html
 import requests
 import os
 import json
+import time
 
 
 def createFolder(directory):
@@ -23,6 +24,8 @@ def crawl_USC(url):
     result = []
     req = requests.get(url)
     soup = BeautifulSoup(req.text, "lxml")
+
+    
     for i in soup.find_all("div",{'class':'item event_item vevent'}):
         event=dict()
         event['title']=i.find("h3",{'class':'summary'}).text.strip()
@@ -73,10 +76,17 @@ def crawl_USC(url):
     #         news_dict['title'] = title_news
     #         news_dict['content'] = news_content
     #         result.append(news_dict)
-         
-    return result
 
-url = 'https://calendar.usc.edu/'
+    newurl = soup.find("a",{'class':'pagearrow right'})['href']
+    print(newurl)
+    #Code to repeat for all pages this year
+    # if newurl!='https://calendar.usc.edu/calendar/week/2020/1/4':
+    #     time.sleep(5)
+    #     result+=crawl_USC(newurl)
+         
+    # return result
+
+url = 'https://calendar.usc.edu/calendar'
 crawl  = crawl_USC(url)
 with open("USC.json","w") as f:
     json.dump(crawl,f)
