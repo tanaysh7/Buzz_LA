@@ -38,37 +38,40 @@ def crawl_USC(url):
     
   
     newurl = soup.find("a",{'class':'pagearrow right'})['href']
-    print(newurl)
+    
     #Code to repeat for all pages this year
-    # if newurl!='https://calendar.usc.edu/calendar/week/2020/1/4':
-    #     time.sleep(5)
-    #     result+=crawl_USC(newurl)
+    if int(newurl.split('/')[-3])<2020:
+        print(newurl)
+        time.sleep(2)
+        result+=crawl_USC(newurl)
          
     return result
 def campus_crawl(url):
     result = []
     driver = webdriver.Chrome()
     driver.get(url)
+    #driver.implicitly_wait(3)
+    print(url)
+    driver.find_elements_by_xpath("//button")[-1].click()
+    time.sleep(3)
     htmlSource = driver.page_source
-    
     elist  = BeautifulSoup(htmlSource, "lxml")
-    print(elist.text)
-    # linklist=elist.find('div',{'id':'event-discovery-list'}).find_all('a')
-    # print(linklist)
-    # for i in linklist:
-    #     event=dict()
-    #     event['title']=i.find("h3").text.strip()
-    #     event['link']=url.split('/engage')[0]+i['href'].strip()
-    #     event['description']=''
-    #     event['tags']=''
-    #     event['time']=[k.parent.text for k in i.find_all('svg')][0]
-    #     event['location']=[k.parent.text for k in i.find_all('svg')][1]
-    #     result.append(event)
+    #print(elist.find('div',{'id':'event-discovery-list'}).find_all('a')[-1].text)
+    linklist=elist.find('div',{'id':'event-discovery-list'}).find_all('a')
+    for i in linklist:
+        event=dict()
+        event['title']=i.find("h3").text.strip()
+        event['link']=url.split('/engage')[0]+i['href'].strip()
+        event['description']=''
+        event['tags']=''
+        event['time']=[k.parent.text for k in i.find_all('svg')][0]
+        event['location']=[k.parent.text for k in i.find_all('svg')][1]
+        result.append(event)
        
     return result
 
 url = 'https://calendar.usc.edu/calendar'
-crawl  = campus_crawl('https://usc.campuslabs.com/engage/events')#+crawl_USC(url)
+crawl  = campus_crawl('https://usc.campuslabs.com/engage/events')+crawl_USC(url)
 
 
 with open("USC.json","w") as f:

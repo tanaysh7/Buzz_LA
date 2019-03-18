@@ -36,13 +36,12 @@ def crawl_UCLA(url):
         #event['location']=i.find("p",{'class':'results-info'}).text.split('m,')[1]
         result.append(event)
     
-  
-    newurl = url+soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
-    print(newurl)
-    #Code to repeat for all pages this year
-    # if newurl!='https://calendar.usc.edu/calendar/week/2020/1/4':
-    #     time.sleep(5)
-    #     result+=crawl_USC(newurl)
+    x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
+    if x:
+        newurl = url+x
+        print(newurl)
+        time.sleep(2)
+        result+=crawl_UCLA(newurl)
          
     return result
 
