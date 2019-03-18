@@ -10,6 +10,12 @@ Knowledge graph of college events in and around Los Angeles. Colleges like USC, 
 - [Nikhit Mago](https://github.com/nikhitmago)
 - [Tanay Shankar](https://github.com/tanaysh7)
 
+**Execution:**
 
-2018
+*( Scraping phase )*
+
+python USC_scraper.py
+ python UCLA_pper.py
+
+March 2019
 
