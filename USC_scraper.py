@@ -52,15 +52,18 @@ def campus_crawl(url):
     htmlSource = driver.page_source
     
     elist  = BeautifulSoup(htmlSource, "lxml")
-    for i in elist.find('div',{'id':'event-discovery-list'}).find_all('a'):
-        event=dict()
-        event['title']=i.find("h3").text.strip()
-        event['link']=url.split('/engage')[0]+i['href'].strip()
-        event['description']=''
-        event['tags']=''
-        event['time']=[k.parent.text for k in i.find_all('svg')][0]
-        event['location']=[k.parent.text for k in i.find_all('svg')][1]
-        result.append(event)
+    print(elist.text)
+    # linklist=elist.find('div',{'id':'event-discovery-list'}).find_all('a')
+    # print(linklist)
+    # for i in linklist:
+    #     event=dict()
+    #     event['title']=i.find("h3").text.strip()
+    #     event['link']=url.split('/engage')[0]+i['href'].strip()
+    #     event['description']=''
+    #     event['tags']=''
+    #     event['time']=[k.parent.text for k in i.find_all('svg')][0]
+    #     event['location']=[k.parent.text for k in i.find_all('svg')][1]
+    #     result.append(event)
        
     return result
 
