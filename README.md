@@ -15,7 +15,8 @@ Knowledge graph of college events in and around Los Angeles. Colleges like USC, 
 *( Scraping phase )*
 
 python USC_scraper.py
- python UCLA_pper.py
+
+python UCLA_pper.py
 
 March 2019
 
