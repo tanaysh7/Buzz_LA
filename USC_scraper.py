@@ -32,7 +32,7 @@ def crawl_USC(url):
         event['link']=i.find("h3",{'class':'summary'}).find("a")['href'].strip()
         event['description']=i.find("h4",{'class':'description'}).text.strip()
         event['tags']=i.find("div",{'class':'event_filters'}).text.split(',')
-        event['time']={'date':i.find("abbr",{'class':'dtstart'})['title'].split('T')[0],'start_time':i.find("abbr",{'class':'dtstart'})['title'].split('T')[1].split('-')[0],'end_time':i.find("abbr",{'class':'dtstart'})['title'].split('T')[1].split('-')[1]}
+        event['time']={'date':i.find("abbr",{'class':'dtstart'})['title'].split('T')[0],'start_time':i.find("abbr",{'class':'dtstart'})['title'].split('T')[1].split('-')[0]}
         event['location']=i.find("div",{'class':'location'}).text.strip()
         result.append(event)
     
@@ -64,7 +64,7 @@ def campus_crawl(url):
         event['link']=url.split('/engage')[0]+i['href'].strip()
         event['description']=''
         event['tags']=''
-        event['time']=[k.parent.text for k in i.find_all('svg')][0]
+        event['time']={'start_time':[k.parent.text for k in i.find_all('svg')][0].split('at')[1].strip('PDT').strip(),'date':[k.parent.text for k in i.find_all('svg')][0].split('at')[0].strip()}
         event['location']=[k.parent.text for k in i.find_all('svg')][1]
         result.append(event)
        
