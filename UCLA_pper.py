@@ -26,22 +26,27 @@ def crawl_UCLA(url):
     soup = BeautifulSoup(req.text, "lxml")
 
     
-    for index,i in enumerate(soup.find("div",{'id':'results'}).find_all("div",{'class':'results-item'})):
+    for i in soup.find("div",{'id':'results'}).find_all("div",{'class':'results-item'}):
         event=dict()
         event['title']=i.find("a").text.strip()
         event['link']=url+i.find("a")['href'].strip()
         event['description']=i.find("p",{'class':'description'}).text.strip()
         event['tags']=''
-       # event['time']={'date':soup.find("div",{'id':'results'}).find_all('h2')[index].text,'start_time':i.find("p",{'class':'results-info'}).text.split('m,')[0]+'m','end_time':''}
-        #event['location']=i.find("p",{'class':'results-info'}).text.split('m,')[1]
+        k=i
+        while k.name!='h2':
+            k=k.previous_element
+        #print(k)
+        event['time']={'date':k.text,'start_time':i.find("p",{'class':'results-info'}).text.split('m,')[0]+'m'}
+        event['location']=i.find("p",{'class':'results-info'}).text.split('m,')[1]
         result.append(event)
     
     x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
-    if x:
-        newurl = url+x
-        print(newurl)
-        time.sleep(2)
-        result+=crawl_UCLA(newurl)
+    # Code to repeat for next pages
+    # if x:
+    #     newurl = url+x
+    #     print(newurl)
+    #     time.sleep(2)
+    #     result+=crawl_UCLA(newurl)
          
     return result
 
