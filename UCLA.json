@@ -1,1 +1,167 @@
-[{"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289911", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Human Genetics Seminar Series", "link": "http://happenings.ucla.edu/all/event/292997", "description": "Dr. Amy Goldberg - Inferring Human Evolution in Tens to Hundreds of Generations", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289912", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289913", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289914", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Global Social Enterprise Summit", "link": "http://happenings.ucla.edu/all/event/294406", "description": "", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289915", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Global Social Enterprise Summit", "link": "http://happenings.ucla.edu/all/event/294407", "description": "", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289916", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Los Angeles Chamber Orchestra: Kahane on Mozart", "link": "http://happenings.ucla.edu/all/event/295349", "description": "", "tags": ""}, {"title": "Human Genetics Seminar Series", "link": "http://happenings.ucla.edu/all/event/293051", "description": "Dr. Cynthia C. Morton - Informing Clinical Interpretations of Structural Chromosome Rearrangements", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289917", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289918", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}, {"title": "Zakir Hussain & Masters of Percussion", "link": "http://happenings.ucla.edu/all/event/290254", "description": "", "tags": ""}, {"title": "Fowler Museum at UCLA Exhibit", "link": "http://happenings.ucla.edu/all/event/289919", "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019", "tags": ""}]
+[
+    {
+        "title": "Human Genetics Seminar Series",
+        "link": "http://happenings.ucla.edu/all/event/292997",
+        "description": "Dr. Amy Goldberg - Inferring Human Evolution in Tens to Hundreds of Generations",
+        "tags": "",
+        "time": {
+            "date": "Monday, March 18, 2019",
+            "start_time": "11:00 am"
+        },
+        "location": " Gonda Center - First Floor Conference Roo"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289912",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Wednesday, March 20, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289913",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Thursday, March 21, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289914",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Friday, March 22, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Global Social Enterprise Summit",
+        "link": "http://happenings.ucla.edu/all/event/294406",
+        "description": "",
+        "tags": "",
+        "time": {
+            "date": "Saturday, March 23, 2019",
+            "start_time": "8:00 am"
+        },
+        "location": " Luskin Conference Center - Centennial Hall (Salons A, B)"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289915",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Saturday, March 23, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Global Social Enterprise Summit",
+        "link": "http://happenings.ucla.edu/all/event/294407",
+        "description": "",
+        "tags": "",
+        "time": {
+            "date": "Sunday, March 24, 2019",
+            "start_time": "8:00 am"
+        },
+        "location": " Luskin Conference Center - Centennial Hall (Salons A, B)"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289916",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Sunday, March 24, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Los Angeles Chamber Orchestra: Kahane on Mozart",
+        "link": "http://happenings.ucla.edu/all/event/295349",
+        "description": "",
+        "tags": "",
+        "time": {
+            "date": "Sunday, March 24, 2019",
+            "start_time": "7:00 pm"
+        },
+        "location": " Royce Hall - Auditorium"
+    },
+    {
+        "title": "Human Genetics Seminar Series",
+        "link": "http://happenings.ucla.edu/all/event/293051",
+        "description": "Dr. Cynthia C. Morton - Informing Clinical Interpretations of Structural Chromosome Rearrangements",
+        "tags": "",
+        "time": {
+            "date": "Monday, March 25, 2019",
+            "start_time": "11:00 am"
+        },
+        "location": " Gonda Center - First Floor Conference Roo"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289917",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Wednesday, March 27, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289918",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Thursday, March 28, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Zakir Hussain & Masters of Percussion",
+        "link": "http://happenings.ucla.edu/all/event/290254",
+        "description": "",
+        "tags": "",
+        "time": {
+            "date": "Thursday, March 28, 2019",
+            "start_time": "8:00 pm"
+        },
+        "location": " Royce Hall - Auditorium"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289919",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Friday, March 29, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    },
+    {
+        "title": "Fowler Museum at UCLA Exhibit",
+        "link": "http://happenings.ucla.edu/all/event/289920",
+        "description": "Inheritance: Recent Video Art from Africa -- February 17 \u2013 July 28, 2019",
+        "tags": "",
+        "time": {
+            "date": "Saturday, March 30, 2019",
+            "start_time": "12:00 pm"
+        },
+        "location": " Fowler Museum Venue - Galleries"
+    }
+]
