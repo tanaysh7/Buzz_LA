@@ -31,7 +31,7 @@ def crawl_UCLA(url):
         event['title']=i.find("a").text.strip()
         event['link']=url+i.find("a")['href'].strip()
         event['description']=i.find("p",{'class':'description'}).text.strip()
-        event['tags']=''
+        event['tags']=[]
         k=i
         while k.name!='h2':
             k=k.previous_element
@@ -41,18 +41,20 @@ def crawl_UCLA(url):
         result.append(event)
     
     x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
-    # Code to repeat for next pages
-    # if x:
-    #     newurl = url+x
-    #     print(newurl)
-    #     time.sleep(2)
-    #     result+=crawl_UCLA(newurl)
+    
+    #Code to repeat for next pages
+    
+    if x:
+        newurl = base_url+x
+        print(newurl)
+        time.sleep(2)
+        result+=crawl_UCLA(newurl)
          
     return result
 
 
-url = 'http://happenings.ucla.edu'
-crawl  = crawl_UCLA(url)
+base_url = 'http://happenings.ucla.edu'
+crawl  = crawl_UCLA(base_url)
 
 
 with open("UCLA.json","w") as f:
