@@ -36,7 +36,7 @@ def crawl_UCLA(url):
         while k.name!='h2':
             k=k.previous_element
         #print(k)
-        event['time']={'date':k.text,'start_time':i.find("p",{'class':'results-info'}).text.split('m,')[0]+'m'}
+        event['date_time']={'date':k.text,'time':i.find("p",{'class':'results-info'}).text.split('m,')[0]+'m'}
         event['location']=i.find("p",{'class':'results-info'}).text.split('m,')[1]
         result.append(event)
     
