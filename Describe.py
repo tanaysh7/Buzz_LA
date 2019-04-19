@@ -6,55 +6,71 @@ import sys
 from lxml import html
 import os
 import json
+import re
 import time
 from selenium import webdriver 
 
 
-urls = ['https://calendar.usc.edu/calendar','https://usc.campuslabs.com/engage/events','https://viterbi.usc.edu/news/events/calendar/?calendar=1&month']
+urls = ['https://calendar.usc','https://usc.campusla','https://viterbi.usc.']
 
 
 def usc_calendar(link):
+    req = requests.get(link)
+    soup = BeautifulSoup(req.text, "lxml")
+    if soup.find('div',{'class','description'}):
+        return soup.find('div',{'class','description'}).text
+    else:
+        print(link)
+        return ''
+  
 
-
-
-    return data
 
 def usc_campus(link):
+    req = requests.get(link)
+    soup = BeautifulSoup(req.text, "lxml")
+    data=soup.find_all('script')[4].text
+    data=json.loads(data.strip('window.initialAppState = ').strip(';'))
+    tags=[]
 
+    for i in data['preFetchedData']['event']['categories']:
+        tags.append(i['name'])
+    
 
-    return data
+    desc=re.sub('<[^<]+?>', '', data['preFetchedData']['event']['description'])
+    
+    return (desc,tags)
 
-# def viterbi(link):
-    #clean data nothing required
-
-#     return data
 
 def ucla(link):
+    req = requests.get(link)
+    soup = BeautifulSoup(req.text, "lxml")
+    return soup.find("div",{'id':'event-details'}).text.split('Additional Information')[-1]
 
 
-    return data
-
-with open("USC.json","w") as f:
-    usc_list=json.load(f)
+# with open("USC.json",'r') as f:
     
-    for event in usc_list:
-        if event.link[:10]==urls[0]:
-            data=usc_calendar(event.link)
-            event['tags']=data['tags']
-            event['description']=data['description']
-        elif event.link[:10]==urls[1]:
-            data=usc_campus(event.link)
-            event['tags']=data['tags']
-            event['description']=data['description']
-      
-    json.dump(usc_list,f)
+#     usc_list=json.loads(f.read())
+    
+#     for i in range(len(usc_list)):
+#         event=usc_list[i]
+#         if event['link'][:20]==urls[0]:
+#             event['description']=usc_calendar(event['link'])
+#         elif event['link'][:20]==urls[1]:
+#             data=usc_campus(event['link'])
+#             event['tags']=data[1]
+#             event['description']=data[0]
+
+# with open("USC.json",'w') as f:     
+#     json.dump(usc_list,f)
 
 with open('UCLA.json') as fu:
     ucla_list=json.load(fu)
     
-    for event in ucla_list:
-        event['description']=ucla(event.link)
-    json.dump(ucla_list,fu)
+    for i in range(len(ucla_list)):
+        event=ucla_list[i]
+        event['description']=ucla(event['link'])
+with open("UCLA.json",'w') as f:     
+    json.dump(ucla_list,f)
 
 
 
