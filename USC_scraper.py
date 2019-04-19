@@ -46,6 +46,46 @@ def crawl_USC(url):
         result+=crawl_USC(newurl)
          
     return result
+def crawl_Viterbi(url):
+    result = []
+    driver = webdriver.Chrome()
+    driver.get(url)
+
+    htmlSource = driver.page_source
+    elist  = BeautifulSoup(htmlSource, "lxml")
+
+
+    for i in elist.find('div',{'id':'events'}).ul.find_all('li', recursive=False):
+
+        event=dict()
+
+
+        date_string=(i.find('div',{'class':'event_stats'}).strong.text)
+        if '@' in date_string:
+            event['date_time']={'date':date_string.split('@')[0],'time':date_string.split('@')[1].split('-')[0]}
+        else:
+            event['date_time']=date_string.strip()
+
+        event['tags']=[i.find('div',{'class':'event_stats'}).find_all('p')[-1].text]
+
+
+
+        event['title']=i.find("h3").a.text.strip()
+        event['link']=url.split('?')[0]+i.find("h3").find("a")['href'].strip()
+        event['description']=i.find("blockquote").text.strip()
+
+
+
+        loc=i.find("blockquote").next_sibling.text.strip()
+        if 'Location:' in loc:
+            event['location']=loc.split('Location:')[1]
+        else:
+            event['location']='USC'
+        result.append(event)
+
+    
+
+    return result
 def campus_crawl(url):
     result = []
     driver = webdriver.Chrome()
@@ -71,7 +111,7 @@ def campus_crawl(url):
     return result
 
 url = 'https://calendar.usc.edu/calendar'
-crawl  = campus_crawl('https://usc.campuslabs.com/engage/events')+crawl_USC(url)
+crawl  = campus_crawl('https://usc.campuslabs.com/engage/events')+crawl_USC(url)+crawl_Viterbi('https://viterbi.usc.edu/news/events/calendar/?calendar=1&month')
 
 
 with open("USC.json","w") as f:
