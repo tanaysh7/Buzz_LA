@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+
+<body>
+
+  <h1><%= title %></h1>
+  <form action='/search-results' method='post'>
+
+    <input type="text" name="searchTerm" placeholder="Enter your keywords here">
+    <button type="submit"> Search </button>
+
+  </form>
+
+
+  <% if(locals.results) { %>
+  <p>
+    <table border="1">
+      <thead>
+        <tr>
+
+          <td>Title</td>
+          <td>Link</td>
+          <td>Desc</td>
+          <td>Location</td>
+          <td>Date</td>
+          <td>Time</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach(function( result ) { %>
+        <tr>
+
+         
+
+          <td><%= result._source.title %></td>
+          <td><a href=<%= result._source.link %></a><%= result._source.link %></a></td>
+          <td><%= result._source.description.slice(0,200)+'...' %></td>
+          <td><%= result._source.location %></td>
+          <td><%= result._source.date_time.date %></td>
+          <td><%= result._source.date_time.time %></td>
+
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    </p>
+
+    <% } %>
+
+
+
+
+</html>
