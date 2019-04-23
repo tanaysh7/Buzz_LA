@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <html>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+   
+   <script>var changeColor = function(obj){
+
+     
+        if(obj=='Alumni'){return 'yellow';}
+        if(obj=='Art'){return 'lavender';}
+        if(obj=='Career'){return 'palegreen';}
+        if(obj=='Dance_Theatre_Film'){return 'turqoise';}
+        if(obj=='Lecture_Talk_Workshop'){return 'pink';}
+        if(obj=='Music'){return 'mediumorchid';}
+        if(obj=='Social'){return 'orange';}
+        if(obj=='Student'){return 'limegreen';}
+        if(obj=='Wellness'){return 'teal';}
+        return 'yellow';
+      
+      
+      };</script>
+ 
 
 <head>
   <title><%= title %></title>
@@ -8,28 +29,84 @@
 
 
 <body>
-
-  <h1><%= title %></h1>
+    <div style="text-align:center">
+  <h1>Welcome to <%= title %> !</h1>
+  <a href='/'><img width="300" alt="Angular Logo" src="https://mlecznepodroze.pl/wp-content/uploads/2019/03/buzz-ryanair-logo-official-prostokat.jpg"></a>
+  </div>
   <form action='/search-results' method='post'>
 
-    <input type="text" name="searchTerm" placeholder="Enter your keywords here">
-    <button type="submit"> Search </button>
+    
+    <div class="col-sm-10">
+        <input type="text" class="form-control" name="searchTerm" placeholder="Enter your keywords here" >
+    </div>
+    <div class="form-group">
+        
+    <!-- <button type="submit"> Search </button> -->
+    <input id="submit" name="submit" type="submit" value="Search" class="btn btn-primary">
+    </div>
+    <!-- drop down for tags
+    check box for university -->
+    <div class="col-sm-0">
+        &emsp;Search Tags
+    </div>
+     <div class="col-sm-2">
+    <select class="form-control form-control-sm" name='tags'>
+        <option>All</option>
+        <option>Alumni</option>
+        <option>Art</option>
+        <option>Career</option>
+        <option>Dance_Theatre_Film</option>
+        <option>Lecture_Talk_Workshop</option>
+        <option>Music</option>
+        <option>Social</option>
+        <option>Student</option>
+        <option>Wellness</option>
+
+
+      </select>
+      </div>
+      <div class="col-sm-1">
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox1" value="USC">
+              <label class="form-check-label" for="inlineCheckbox1">USC</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox2" value="UCLA">
+              <label class="form-check-label" for="inlineCheckbox2">UCLA</label>
+            </div>
+                     
+            </div>
+            <div class="col-sm-2">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox3" value="CALSTATE">
+                <label class="form-check-label" for="inlineCheckbox3">CALSTATE</label>
+              </div>
+              <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox4" value="CALTECH">
+                  <label class="form-check-label" for="inlineCheckbox4">CALTECH</label>
+                </div>
+                </div>
+            Events after <input type='date'name='start_date'/>
+
 
   </form>
 
-
+<hr>
   <% if(locals.results) { %>
   <p>
-    <table border="1">
+    <table class="table">
       <thead>
         <tr>
 
-          <td>Title</td>
-          <td>Link</td>
-          <td>Desc</td>
-          <td>Location</td>
-          <td>Date</td>
-          <td>Time</td>
+          <th scope="col">Title</th>
+          <th scope="col">Link</th>
+          <th scope="col">Description</th>
+          <th scope="col">Location</th>
+          <th scope="col">School</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Tag</th>
+
         </tr>
       </thead>
       <tbody>
@@ -39,11 +116,13 @@
          
 
           <td><%= result._source.title %></td>
-          <td><a href=<%= result._source.link %></a><%= result._source.link %></a></td>
+          <td><a href=<%= result._source.link %>><%= result._source.link.slice(0,50) %></a></td>
           <td><%= result._source.description.slice(0,200)+'...' %></td>
           <td><%= result._source.location %></td>
+          <td><%= result._source.univ %></td>
           <td><%= result._source.date_time.date %></td>
           <td><%= result._source.date_time.time %></td>
+          <td bgcolor="changeColor(<%= result._source.tags %>)"><%= result._source.tags %></td>
 
         </tr>
         <% }) %>

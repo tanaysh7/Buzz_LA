@@ -4,18 +4,42 @@ var client = new elasticsearch.Client({ host: 'localhost:9200', log: 'trace' });
 
 module.exports.search = function (searchData, callback) {
  
-    var search_query = 'artificial intelligence research talk'; // space separated query (required field)
-var univ_name = 'USC UCLA CALTECH CALSTATE'; //space separated university name
-var _tags = 'Alumni Art Career Dance_Theatre_Film Lecture_Talk_Workshop Music Social Student Wellness'; // single tag
-var date_gte = "2019-04-01"; //start date format: "yyyy-mm-dd" [REQUIRED]
+    if (searchData.searchTerm=='') 
+    var searchterm = 'the of in to Alumni :';
+    else
+    var searchterm=searchData.searchTerm; // space separated query (required field)
+
+    if (searchData.tags=='All')
+    var _tags = 'Alumni Art Career Dance_Theatre_Film Lecture_Talk_Workshop Music Social Student Wellness';
+    else
+    var _tags = searchData.tags;
+    
+
+   
+    
+    
+    var univ_name=''
+    if (Array.isArray(searchData.school)){
+var arrayLength = searchData.school.length;
+    for (var i = 0; i < arrayLength; i++) {
+        univ_name+=' '+searchData.school[i]   
+    }
+  }
+  else
+  univ_name=searchData.school
+
+  if (!univ_name)
+var univ_name='USC UCLA CALTECH CALSTATE'; //space separated university name
+ // single tag
+var date_gte = searchData.start_date;//"2019-04-01"; //start date format: "yyyy-mm-dd" [REQUIRED]
 var date_lte = "2019-12-31"; //end date format: "yyyy-mm-dd" [REQUIRED]
 // var promise = client.ping();
+if(!date_gte)
+date_gte="2019-04-01"
 
-// promise.then(function (response) {
-//   console.log("response " + response);},
-// function (error) {
-//   console.error('elasticsearch cluster is down!');
-// });
+if(date_gte=="")
+date_gte="2019-04-01"
+
 
      client.search({index: 'event',
      type: 'events',
@@ -23,7 +47,7 @@ var date_lte = "2019-12-31"; //end date format: "yyyy-mm-dd" [REQUIRED]
        query: {
          bool: {
            must: [
-             { match: { title: searchData.searchTerm } }, //matches both description and title, as desc = desc + title
+             { match: { title: searchterm } }, //matches both description and title, as desc = desc + title
              { match: { univ: univ_name } },
              { match: { tags: _tags } }
            ],
