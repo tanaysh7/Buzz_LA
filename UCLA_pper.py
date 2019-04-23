@@ -39,6 +39,18 @@ def crawl_UCLA(url):
         event['date_time']={'date':k.text,'time':i.find("p",{'class':'results-info'}).text.split('m,')[0]+'m'}
         event['location']=i.find("p",{'class':'results-info'}).text.split('m,')[1]
         result.append(event)
+
+    
+    x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
+    
+    #Code to repeat for next pages
+    
+    if x:
+        newurl = base_url+x
+        print(newurl)
+        time.sleep(2)
+        result+=crawl_UCLA(newurl)
+
     try:
         x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
     #Code to repeat for next pages
@@ -49,12 +61,13 @@ def crawl_UCLA(url):
             result+=crawl_UCLA(newurl)
     except:
         return result
+
          
     return result
 
 
-url = 'http://happenings.ucla.edu'
-crawl  = crawl_UCLA(url)
+base_url = 'http://happenings.ucla.edu'
+crawl  = crawl_UCLA(base_url)
 
 
 with open("UCLA.json","w") as f:
