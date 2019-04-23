@@ -29,7 +29,7 @@ def crawl_UCLA(url):
     for i in soup.find("div",{'id':'results'}).find_all("div",{'class':'results-item'}):
         event=dict()
         event['title']=i.find("a").text.strip()
-        event['link']=url+i.find("a")['href'].strip()
+        event['link']=url.split('.edu')[0]+'.edu'+i.find("a")['href'].strip()
         event['description']=i.find("p",{'class':'description'}).text.strip()
         event['tags']=[]
         k=i
@@ -39,6 +39,7 @@ def crawl_UCLA(url):
         event['date_time']={'date':k.text,'time':i.find("p",{'class':'results-info'}).text.split('m,')[0]+'m'}
         event['location']=i.find("p",{'class':'results-info'}).text.split('m,')[1]
         result.append(event)
+
     
     x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
     
@@ -49,6 +50,18 @@ def crawl_UCLA(url):
         print(newurl)
         time.sleep(2)
         result+=crawl_UCLA(newurl)
+
+    try:
+        x=soup.find("ul",{'id':'pagination'}).find_all('li')[-1].find('a')['href']
+    #Code to repeat for next pages
+        if x:
+            newurl = url.split('.edu')[0]+'.edu'+x
+            print(newurl)
+            time.sleep(3)
+            result+=crawl_UCLA(newurl)
+    except:
+        return result
+
          
     return result
 
