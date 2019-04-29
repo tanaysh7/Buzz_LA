@@ -24,7 +24,6 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 
 - curl -X POST 'http://localhost:9200/event/events/_bulk?pretty' -H 'Content-Type: application/json' --data-binary '@final_data.json' `Load final_data.json to elasticsearch using this command`
 
-7) run this command to see basic output: node node elastic.js > output.txt
 
 
 **Execution:**
