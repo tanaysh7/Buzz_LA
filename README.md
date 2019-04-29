@@ -14,7 +14,7 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 
 - node package manager (npm)
 
--Install Elasticsearch 7.0.0
+- Elasticsearch 7.0.0
 
 **Installation:**
 
@@ -31,5 +31,5 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 npm start `in buzz_es directory`
 
 
-March 2019
+`April 2019`
 
