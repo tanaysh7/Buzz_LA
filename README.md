@@ -28,7 +28,7 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 
 **Execution:**
 
-npm start
+npm start `in buzz_es directory`
 
 
 March 2019
