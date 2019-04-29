@@ -1,0 +1,21 @@
+Steps to set up Elasticsearch with node.js:
+
+Ref. Wu's slides - Elastic search.pdf, elasticsearch_nodejs.pdf
+
+Files required in Nikhit's GitHub repo -> final_data.json, elastic.js
+
+1) Install Elasticsearch (Slides 5, 6 in Elastic search.pdf)
+
+2) After executing elasticsearch, install node.js and elasticsearch library (Slides 2, 3 in elasticsearch_nodejs.pdf)
+
+3) Execute this command on terminal to check if installation is OK: curl -X GET 'localhost:9200/_cat/health?v&pretty'
+
+4) Execute this command to create index called "event": curl -X PUT 'localhost:9200/event?pretty'
+
+5) Execute this command to see if index created properly: curl -X GET 'localhost:9200/_cat/indices?v&pretty'
+
+6) Load final_data.json to elasticsearch using this command: curl -X POST 'http://localhost:9200/event/events/_bulk?pretty' -H 'Content-Type: application/json' --data-binary '@final_data.json'
+
+7) run this command to see basic output: node node elastic.js > output.txt
+
+8) I will add more searchable facets like date, tags etc. while you guys integrate this with the HTML and web app.

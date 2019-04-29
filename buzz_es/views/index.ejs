@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+
+
+<head>
+  <title><%= title %></title>
+  
+</head>
+
+
+<body>
+  <div style="text-align:center">
+    <h1>Welcome to <%= title %> !</h1>
+    <a href='/'><img width="300" alt="Angular Logo"
+        src="https://mlecznepodroze.pl/wp-content/uploads/2019/03/buzz-ryanair-logo-official-prostokat.jpg"></a>
+  </div>
+ 
+  <form action='/search-results' method='post'>
+
+
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="searchTerm" placeholder="Enter your keywords here">
+    </div>
+    <div class="form-group">
+
+      <!-- <button type="submit"> Search </button> -->
+      <input id="submit" name="submit" type="submit" value="Search" class="btn btn-primary">
+    </div>
+    <!-- drop down for tags
+    check box for university -->
+    <div class="col-sm-0">
+      &emsp;Search Tags
+    </div>
+    <div class="col-sm-2">
+      <select class="form-control form-control-sm" name='tags'>
+        <option>All</option>
+        <option>Alumni</option>
+        <option>Art</option>
+        <option>Career</option>
+        <option>Dance_Theatre_Film</option>
+        <option>Lecture_Talk_Workshop</option>
+        <option>Music</option>
+        <option>Social</option>
+        <option>Student</option>
+        <option>Wellness</option>
+
+
+      </select>
+    </div>
+    <div class="col-sm-1">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox1" value="USC">
+        <label class="form-check-label" for="inlineCheckbox1">USC</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox2" value="UCLA">
+        <label class="form-check-label" for="inlineCheckbox2">UCLA</label>
+      </div>
+
+    </div>
+    <div class="col-sm-2">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox3" value="CALSTATE">
+        <label class="form-check-label" for="inlineCheckbox3">CALSTATE</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" name='school' id="inlineCheckbox4" value="CALTECH">
+        <label class="form-check-label" for="inlineCheckbox4">CALTECH</label>
+      </div>
+    </div>
+
+    Events after <input type='date' name='start_date' />
+    
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+ 
+    <a href="/buzz-cloud" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">  Buzz Today</a>
+
+  
+
+
+
+  </form>
+
+
+
+  <hr>
+  <% if(locals.results) { 
+
+    function changeColor(obj){
+
+     
+      if(obj=='Alumni'){return 'yellow';}
+      else if(obj=='Art'){return 'lavender';}
+      else if(obj=='Career'){return 'palegreen';}
+      else if(obj=='Dance_Theatre_Film'){return 'SandyBrown';}
+      else if(obj=='Lecture_Talk_Workshop'){return 'pink';}
+      else if(obj=='Music'){return 'mediumorchid';}
+      else if(obj=='Social'){return 'orange';}
+      else if(obj=='Student'){return 'limegreen';}
+      else if(obj=='Wellness'){return 'SkyBlue';}
+      else return 'limegreen';
+    
+    
+    } %>
+  <p>
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th scope="col">Title</th>
+          <th scope="col">Link</th>
+          <th scope="col">Description</th>
+          <th scope="col">Location</th>
+          <th scope="col">School</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Tag</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% results.forEach(function( result ) { %>
+        <tr>
+
+
+
+          <td><%= result._source.title %></td>
+          <td><a href=<%= result._source.link %>><%= result._source.link.slice(0,50) %></a></td>
+          <td><%= result._source.description.slice(0,100)+'...' %></td>
+          <td><%= result._source.location %></td>
+          <td><%= result._source.univ %></td>
+          <td><%= result._source.date_time.date %></td>
+          <td><%= result._source.date_time.time %></td>
+          <td bgcolor=<%= changeColor(result._source.tags) %>> <%= result._source.tags %></td>
+
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </p>
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">2 </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13227.354672809!2d-118.285117!3d34.0223519!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaa905a5bb427a2c4!2sUniversity+of+Southern+California!5e0!3m2!1sen!2sus!4v1556331775144!5m2!1sen!2sus"
+    width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+  <% } %>
+
+
+
+
+</html>
