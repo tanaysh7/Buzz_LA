@@ -30,6 +30,10 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 
 npm start `(in buzz_es directory)`
 
+![Landing](images/home.jpg)
+![Landing](images/filtered.jpg)
+![Landing](images/buzz_cloud.jpg)
+![Landing](images/map.jpg)
 
 April 2019
 
