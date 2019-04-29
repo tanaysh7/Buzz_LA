@@ -18,18 +18,18 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 
 **Installation:**
 
-- npm install
+- npm install `(in buzz_es directory)`
 
-- curl -X PUT 'localhost:9200/event?pretty' `create index called "event"`
+- curl -X PUT 'localhost:9200/event?pretty' `(create index called "event")`
 
-- curl -X POST 'http://localhost:9200/event/events/_bulk?pretty' -H 'Content-Type: application/json' --data-binary '@final_data.json' `Load final_data.json to elasticsearch using this command`
+- curl -X POST 'http://localhost:9200/event/events/_bulk?pretty' -H 'Content-Type: application/json' --data-binary '@final_data.json' `(Load final_data.json to elasticsearch using this command)`
 
 
 
 **Execution:**
 
-npm start `in buzz_es directory`
+npm start `(in buzz_es directory)`
 
 
-`April 2019`
+April 2019
 
