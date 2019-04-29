@@ -1,6 +1,6 @@
 # buzz_la
 
-Knowledge graph of college events in and around Los Angeles. Colleges like USC, UCLA, Cal Tech have several events open to students and general public, details about them were found on respective university websites.
+Buzz LA is a knowledge graph that provides users (students, faculty) with information about events at Universities in the city of Los Angeles. Users are  able to search for events related to  academics, sports, workshops etc. This application utilized 1200+ scraped events with the help of scrapers, entity linking methods and elasticsearch database to query the results to a web application.
 
 **Language:** python
 
@@ -10,13 +10,26 @@ Knowledge graph of college events in and around Los Angeles. Colleges like USC, 
 - [Nikhit Mago](https://github.com/nikhitmago)
 - [Tanay Shankar](https://github.com/tanaysh7)
 
+**Requirements:**
+
+- node package manager (npm)
+
+- Elasticsearch 7.0.0
+
+**Installation:**
+
+- npm install
+
+- curl -X PUT 'localhost:9200/event?pretty' `create index called "event"`
+
+- curl -X POST 'http://localhost:9200/event/events/_bulk?pretty' -H 'Content-Type: application/json' --data-binary '@final_data.json' `Load final_data.json to elasticsearch using this command`
+
+
+
 **Execution:**
 
-*( Scraping phase )*
+npm start `in buzz_es directory`
 
-python USC_scraper.py
 
-python UCLA_pper.py
-
-March 2019
+`April 2019`
 
