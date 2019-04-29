@@ -6,8 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Buzz LA' });
 });
 
+router.get('/buzz-cloud', function(req, res, next) {
+  searchModule.cloud(req.body, function(data) { 
+    res.render('cloud', { title: 'Buzz LA', results: data }); 
+    }); 
+  });
+
+
+
 router.post('/search-results',function(req,res){
-  // alert(req);
+ 
 
 searchModule.search(req.body, function(data) { 
 

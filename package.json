@@ -1,0 +1,28 @@
+{
+  "name": "buzz_la",
+  "version": "1.0.0",
+  "description": "Dubem and Tanay, read the txt file in elasticsearch folder!",
+  "main": "buzz.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "d3": "^5.9.2",
+    "elasticsearch": "^15.4.1",
+    "express": "^4.16.4",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanaysh7/buzz_la.git"
+  },
+  "author": "Tanay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanaysh7/buzz_la/issues"
+  },
+  "homepage": "https://github.com/tanaysh7/buzz_la#readme"
+}

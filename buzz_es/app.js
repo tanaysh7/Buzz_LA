@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var cloudRouter = require('./routes/cloud');
 
 
 var app = express();
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/search-results', indexRouter);
+app.use('/buzz-cloud',cloudRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
