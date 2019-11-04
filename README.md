@@ -1,4 +1,4 @@
-# buzz_la
+# Buzz_LA
 
 Buzz LA is a knowledge graph that provides users (students, faculty) with information about events at Universities in the city of Los Angeles. Users are  able to search for events related to  academics, sports, workshops etc. This application utilized 1200+ scraped events with the help of scrapers, entity linking methods and elasticsearch database to query the results to a web application.
 
@@ -30,9 +30,13 @@ Buzz LA is a knowledge graph that provides users (students, faculty) with inform
 
 npm start `(in buzz_es directory)`
 
+**Landing Page**
 ![Landing](images/home.JPG)
+**Filters**
 ![Filtered](images/filtered.jpg)
+**Word Cloud**
 ![Cloud](images/buzz_cloud.JPG)
+**Map Section**
 ![Map](images/map.JPG)
 
 April 2019
