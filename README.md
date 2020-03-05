@@ -1,6 +1,6 @@
 # Buzz_LA
 
-Buzz LA is a knowledge graph that provides users (students, faculty) with information about events at Universities in the city of Los Angeles. Users are  able to search for events related to  academics, sports, workshops etc. This application utilized 1200+ scraped events using **Scrapy,Beautiful Soup and Selenium**, entity linking methods and **elastic search** database to query the results to a web application. Using **Scikit-Learn Naive Bayes** classifier aggregated miscellaneous and untagged events to respective groups.  
+Buzz LA is an aggregated and **searchable knowledge graph** that provides users (students, faculty) with information about events at Universities in the city of Los Angeles. Users are  able to search for events related to  academics, sports, workshops etc. This application utilized 1200+ scraped events using **Scrapy,Beautiful Soup and Selenium**, entity linking methods and **elastic search** database to query the results to a web application. Using **Scikit-Learn Naive Bayes** classifier aggregated miscellaneous and untagged events to respective groups.  
 
 **Language:** python
 
